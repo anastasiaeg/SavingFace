@@ -54,16 +54,21 @@
                   <h5 class="description">SavingFace’s mission is to give people control over the message their profile photos deliver.</h5>
               </div>
           </div>
+          <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+                    <img src="./assets/img/research.png" alt="" style="width:75%;">
+                </div>
+            </div>
           <div class="separator separator-primary"></div>
           <div class="section-story-overview">
               <div class="row">
                   <div class="col-md-6">
                       <div class="image-container image-left" style="background-image: url('../assets/img/login.jpeg')">
                           <!-- First image on the left side -->
-                          <p class="blockquote blockquote-primary">"Over the span of the satellite record, Arctic sea ice has been declining significantly, while sea ice in the Antarctichas increased very slightly"
+                          <p class="blockquote blockquote-primary">"The future belongs to those who believe in the beauty of their dreams."
                               <br>
                               <br>
-                              <small>-NOAA</small>
+                              <small>-Eleanor Roosevelt</small>
                           </p>
                       </div>
                       <!-- Second image on the left side of the article -->
@@ -72,25 +77,21 @@
                   <div class="col-md-5">
                       <!-- First image on the right side, above the article -->
                       <div class="image-container image-right" style="background-image: url('../assets/img/bg1.jpg')"></div>
-                      <h3>So what does the new record for the lowest level of winter ice actually mean</h3>
-                      <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens with climate change. Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter. And year-by-year, for all kinds of natural reasons, there’s huge variety of the state of the ice.
+                      <h3>...it takes one-tenth of a second for a person to look at your picture and form an impression about your personality...</h3>
+                      <p>Research has shown that it takes one-tenth of a second for a person to look at your picture and form an impression about your personality. 
                       </p>
-                      <p>
-                          For a start, it does not automatically follow that a record amount of ice will melt this summer. More important for determining the size of the annual thaw is the state of the weather as the midnight sun approaches and temperatures rise. But over the more than 30 years of satellite records, scientists have observed a clear pattern of decline, decade-by-decade.
-                      </p>
-                      <p>The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever happens with climate change. Even if the Arctic continues to be one of the fastest-warming regions of the world, it will always be plunged into bitterly cold polar dark every winter. And year-by-year, for all kinds of natural reasons, there’s huge variety of the state of the ice.
-                      </p>
+                           <p> A recent study investigated several low level features such as saturation, hue and contrast as well as high level features such as face size, setting, dress style, glasses, smile, background, head tilt etc. that influence our impression of images.
+                            </p>
+                            <p>Saving Face looks at some of these elements and provides users with feedback about what they can do to improve the quality of pictures.
+                            </p>
+                            <p>We first used Microsoft’s Cognitive Service Vision API, in particular the Face API that detects human faces and returns face attributes containing machine learning-based predictions of facial features. Of the available features, we used low level features such as exposure, noise and blur and high level features such as emotion (anger, contempt, disgust, fear, happiness, neutral, sadness and surprise), smile, and accessories such as sunglasses. Additionally, we used Google’s Logo Detection API that detects product logos within an image.
+                             </p>
                   </div>
               </div>
           </div>
 
 
-            <div class="row">
-                <div class="col-md-8 ml-auto mr-auto text-center">
-                    <img src="./assets/img/research.png" alt="" style="width:75%;">
-                    <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
-                </div>
-            </div>
+           
       </div>
   </div>
 
@@ -108,8 +109,10 @@
                     <div class="col" style="width:500px; height:650px">
                         <img src="{{picture}}" alt="">
                     </div>
-                    <div class="col">
-                        <input type="text" [(ngModel)]="output" class="form-control" />
+                    <div class="col" >
+                        <!-- <input type="text" [(ngModel)]="output" class="form-control" /> -->
+                        <img src="{{outputPicture}}" alt="">
+                        <h5 style="color: black">{{output}}</h5>
                     </div>
                     <div class="w-100">
                     </div>
@@ -135,7 +138,6 @@
                     <div class="row">
                         <div class="col">
                             <div class="team-player">
-                                <img src="../assets/img/avatar.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                 <h4 class="title">Abeer Altaf</h4>
                                 <p class="category text-primary">Model</p>
                                 <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
@@ -144,7 +146,6 @@
                         </div>
                         <div class="col">
                             <div class="team-player">
-                                <img src="../assets/img/ryan.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                 <h4 class="title">Anastasia Egorova</h4>
                                 <p class="category text-primary">Designer</p>
                                 <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
@@ -153,7 +154,6 @@
                         </div>
                         <div class="col">
                             <div class="team-player">
-                                <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                 <h4 class="title">Meghana Subramaniam</h4>
                                 <p class="category text-primary">Fashion</p>
                                 <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
@@ -163,7 +163,6 @@
     
                         <div class="col">
                                 <div class="team-player">
-                                    <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
                                     <h4 class="title">Danielle Wheeler</h4>
                                     <p class="category text-primary">Fashion</p>
                                     <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some

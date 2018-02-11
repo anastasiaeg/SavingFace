@@ -50,15 +50,15 @@
       <div class="container">
           <div class="row">
               <div class="col-md-8 ml-auto mr-auto text-center">
-                  <h2 class="title">Who we are?</h2>
-                  <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+                  <img src="./assets/img/whoweare.png" alt="" style="width:75%;">
+                  <h5 class="description">SavingFace’s mission is to give people control over the message their profile photos deliver.</h5>
               </div>
           </div>
           <div class="separator separator-primary"></div>
           <div class="section-story-overview">
               <div class="row">
                   <div class="col-md-6">
-                      <div class="image-container image-left" style="background-image: url('../assets/img/login.jpg')">
+                      <div class="image-container image-left" style="background-image: url('../assets/img/login.jpeg')">
                           <!-- First image on the left side -->
                           <p class="blockquote blockquote-primary">"Over the span of the satellite record, Arctic sea ice has been declining significantly, while sea ice in the Antarctichas increased very slightly"
                               <br>
@@ -67,7 +67,7 @@
                           </p>
                       </div>
                       <!-- Second image on the left side of the article -->
-                      <div class="image-container" style="background-image: url('../assets/img/bg3.jpg'); background-position: unset;"></div>
+                      <div class="image-container" style="background-image: url('../assets/img/bg3.jpeg'); background-position: unset;"></div>
                   </div>
                   <div class="col-md-5">
                       <!-- First image on the right side, above the article -->
@@ -83,70 +83,101 @@
                   </div>
               </div>
           </div>
+
+
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+                    <img src="./assets/img/research.png" alt="" style="width:75%;">
+                    <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+                </div>
+            </div>
       </div>
   </div>
 
   <div class="page-header clear-filter" >
         <div class="container">
+            
             <div class="content-center brand">
+                    <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto text-center">
+                                <img src="./assets/img/try.png" alt="" style="width:75%;">
+                            </div>
+                        </div>
                 <div class="row">
                     
-                    <div class="col" style="width:500px; height:700px">
+                    <div class="col" style="width:500px; height:650px">
                         <img src="{{picture}}" alt="">
                     </div>
                     <div class="col">
                         <input type="text" [(ngModel)]="output" class="form-control" />
                     </div>
-
+                    <div class="w-100">
+                    </div>
+                    <div class="col">
+                        <input type="url" [(ngModel)]="picture" class="form-control" />
+                    </div>
+                    <div class="col">
+                            <button class="btn btn-lg" (click)="sendPicture()">Submit</button>
+                    </div>
                 </div>
-                <input type="url" [(ngModel)]="picture" class="form-control" />
-                <button class="btn btn-lg" (click)="sendPicture()">Submit</button>
             </div>
         </div>
   </div>
 
   <div class="section section-team text-center">
       <div class="container">
-          <h2 class="title">Here is our team</h2>
-          <div class="team">
-              <div class="row">
-                  <div class="col-md-4">
-                      <div class="team-player">
-                          <img src="../assets/img/avatar.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                          <h4 class="title">Romina Hadid</h4>
-                          <p class="category text-primary">Model</p>
-                          <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                              <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-instagram"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-facebook-square"></i></a>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="team-player">
-                          <img src="../assets/img/ryan.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                          <h4 class="title">Ryan Tompson</h4>
-                          <p class="category text-primary">Designer</p>
-                          <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                              <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-linkedin"></i></a>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="team-player">
-                          <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                          <h4 class="title">Eva Jenner</h4>
-                          <p class="category text-primary">Fashion</p>
-                          <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                              <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-google-plus"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-youtube-play"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-round"><i class="fa fa-twitter"></i></a>
-                      </div>
-                  </div>
-              </div>
-          </div>
+            <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <img src="./assets/img/team.png" alt="" style="width:75%;">
+                    </div>
+                </div>
+                <div class="team">
+                    <div class="row">
+                        <div class="col">
+                            <div class="team-player">
+                                <img src="../assets/img/avatar.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                <h4 class="title">Abeer Altaf</h4>
+                                <p class="category text-primary">Model</p>
+                                <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="team-player">
+                                <img src="../assets/img/ryan.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                <h4 class="title">Anastasia Egorova</h4>
+                                <p class="category text-primary">Designer</p>
+                                <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="team-player">
+                                <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                <h4 class="title">Meghana Subramaniam</h4>
+                                <p class="category text-primary">Fashion</p>
+                                <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                                    <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                            </div>
+                        </div>
+    
+                        <div class="col">
+                                <div class="team-player">
+                                    <img src="../assets/img/eva.jpg" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
+                                    <h4 class="title">Danielle Wheeler</h4>
+                                    <p class="category text-primary">Fashion</p>
+                                    <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
+                                        <a href="#">links</a> for people to be able to follow them outside the site.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto text-center">
+                    <img src="./assets/img/Sources.png" alt="" style="width:75%;">
+                    <h5 class="description">According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist, puts the potentially record low maximum sea ice extent tihs year down to low ice extent in the Pacific and a late drop in ice extent in the Barents Sea.</h5>
+                </div>
+            </div>
       </div>
   </div>
   

@@ -9,6 +9,39 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  output = "";
+  professional = {
+    noPeople: false,
+    multiplePeople: false,
+    logo: false,
+    smile: true,
+    noise: "low",
+    blur: "low",
+    anger:0.1,
+    contempt:0.1,
+    fear:0.1,
+    sadness:0.1,
+    disgust:0.1,
+    surprise:0.1,
+    exposure:"goodExposure",
+    glasses: "NoGlasses"
+  }
+  currentPicture = {
+    noPeople: null,
+    multiplePeople: null,
+    logo: null,
+    smile: null,
+    noise: null,
+    blur:null,
+    anger: null,
+    contempt: null,
+    disgust:null,
+    fear: null,
+    sadness: null,
+    surprise: null,
+    exposure: null,
+    glasses: null
+  }
   picture = 'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'
   constructor(private http:HttpClient) {}
   // Uses http.get() to load data from a single API endpoint
@@ -24,7 +57,7 @@ export class AppComponent implements OnInit {
           "image": {
             "source": {
               "imageUri": this.picture
-            }
+            
           }
         }
       ]
@@ -49,7 +82,18 @@ export class AppComponent implements OnInit {
       headers:{'Content-Type': 'application/json'}
     }).subscribe(
         data => {
-          console.log(data);
+          console.log('label', (<any>data).responses[0]);
+
+          var array = (<any>data).responses[0].labelAnnotations
+          for (var i = 0 ; i < array.length; i++) {
+            if (array[i].description === "sunglasses") {
+              this.currentPicture.glasses = true;
+              break;
+            }
+          }
+          this.currentPicture.glasses = this.currentPicture.glasses === true;
+          console.log('current', this.currentPicture);
+
         },
         error => {
           console.error("Error with Google API, Label Detection");
@@ -59,7 +103,10 @@ export class AppComponent implements OnInit {
       headers:{'Content-Type': 'application/json'}
     }).subscribe(
         data => {
-          console.log(data);
+          console.log('logo', (<any>data).responses[0]);
+
+          this.currentPicture.logo = Object.keys((<any>data).responses[0]).length !== 0 && (<any>data).responses[0].logoAnnotation.length > 0
+          console.log('current', this.currentPicture);
         },
         error => {
           console.error("Error with Google API, Logo Detection");
@@ -71,12 +118,30 @@ export class AppComponent implements OnInit {
         "returnFaceAttributes": "age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise"}
       }).subscribe(
         data => {
-          console.log(data);
+          this.currentPicture.noPeople = (<any>data).length === 0
+          this.currentPicture.multiplePeople = (<any>data).length > 1;
+          if (!this.currentPicture.noPeople && !this.currentPicture.multiplePeople) {
+            this.currentPicture.anger =(<any>data[0]).faceAttributes.emotion.anger;
+            this.currentPicture.contempt = (<any>data[0]).faceAttributes.emotion.contempt;
+            this.currentPicture.disgust = (<any>data[0]).faceAttributes.emotion.disgust;
+            this.currentPicture.sadness = (<any>data[0]).faceAttributes.emotion.sadness;
+            this.currentPicture.surprise = (<any>data[0]).faceAttributes.emotion.surprise;
+            this.currentPicture.fear = (<any>data[0]).faceAttributes.emotion.fear;
+            
+            this.currentPicture.exposure = (<any>data[0]).faceAttributes.exposure.exposureLevel;
+            this.currentPicture.blur = (<any>data[0]).faceAttributes.blur.blurLevel;
+            this.currentPicture.noise = (<any>data[0]).faceAttributes.noise.noiseLevel;
+
+            this.currentPicture.smile = (<any>data[0]).faceAttributes.smile;
+            
+          }
         },
         error => {
           console.error("Error with FaceAPI");
         }
       );
+
+
       return true;
   }
 

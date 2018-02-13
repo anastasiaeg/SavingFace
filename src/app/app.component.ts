@@ -50,9 +50,27 @@ export class AppComponent implements OnInit {
   constructor(private http:HttpClient) {}
   // Uses http.get() to load data from a single API endpoint
   sendPicture() {
+
+  this.currentPicture = {
+    noPeople: null,
+    multiplePeople: null,
+    logo: null,
+    smile: null,
+    noise: null,
+    blur:null,
+    anger: null,
+    contempt: null,
+    disgust:null,
+    fear: null,
+    sadness: null,
+    surprise: null,
+    exposure: null,
+    sunglasses: null,
+    glasses: null
+  }
     var status = "";
     this.output = "";
-    this.outputPicture = ""
+    this.outputPicture = "./assets/img/checkmark.png"
     var labelDetection = {
       "requests": [
         {
@@ -136,46 +154,57 @@ export class AppComponent implements OnInit {
 
                       if (this.currentPicture.noPeople) {
         this.output = this.output + "\nFace can't be detected."
-      }
+      } else {
       if (this.currentPicture.multiplePeople) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nThere are multiple people in the picture."
-      }
+      } else {
       if (this.currentPicture.logo) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nThere's a company logo in the picture."
       }
       if (!this.currentPicture.smile) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYou're not smiling:("
       }
-      if (this.currentPicture.noise !== "low") {
-        this.output = this.output + "\nGrainy picture."
-      }
       if (this.currentPicture.blur !== "low") {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nBlurry picture."
       }
       if (this.currentPicture.anger > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYour expression resembles anger."
       }
       if (this.currentPicture.contempt > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYour expression resembles contempt."
       }
       if (this.currentPicture.fear > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYour expression resembles fear."
       }
       if (this.currentPicture.sadness > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYour expression resembles sadness."
       }
       if (this.currentPicture.disgust > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYour expression resembles disgust"
       }
       if (this.currentPicture.surprise > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nYour expression resembles surprise"
       }
-      if (this.currentPicture.exposure !== "goodExposure") {
-        this.output = this.output + "\nBad lighting."
-      }
       if (this.currentPicture.sunglasses > 0.1) {
+        this.outputPicture = "./assets/img/checkmark.png"
         this.output = this.output + "\nAvoid sunglasses."
       }
+
+      if (data!= "" && this.output == "" || this.output == "\n") {
+        this.output = "Great job!"
+      }
+    }
+  }
                     },
                     error => {
                       console.error("Error with FaceAPI");

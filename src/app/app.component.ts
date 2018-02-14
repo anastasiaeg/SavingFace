@@ -82,7 +82,7 @@ export class AppComponent implements OnInit {
           "image": {
             "source": {
               "imageUri": this.picture
-            
+            }
           }
         }
       ]
